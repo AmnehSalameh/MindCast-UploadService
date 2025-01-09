@@ -36,7 +36,7 @@ const uploadToS3 = async (file) => {
     const response = await s3Client.send(command);
     const fileUrl = `https://${BUCKET_NAME}.s3.amazonaws.com/${key}`;
 
-    console.log(`File uploaded successfully. ETag: ${response.ETag}`);
+    console.log(`File uploaded successfully.`);
     return { url: fileUrl, eTag: response.ETag };
   } catch (error) {
     console.error("Error uploading file:", error);
