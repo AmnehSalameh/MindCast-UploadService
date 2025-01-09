@@ -1,24 +1,20 @@
-# Use an official Node.js runtime as the base image
-FROM node:18-alpine
+# Step 1: Use the official Node.js image with the specified version
+FROM node:22.12.0
 
-# Set the working directory inside the container
-WORKDIR /app
+# Step 2: Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Copy package.json and yarn.lock to the working directory
-COPY package.json yarn.lock ./
+# Step 3: Copy package.json and package-lock.json (if available)
+COPY package*.json ./
 
-# Install project dependencies
-RUN yarn install --frozen-lockfile
+# Step 4: Install dependencies
+RUN npm install
 
-# Copy the rest of the application code to the working directory
+# Step 5: Copy the rest of the application files
 COPY . .
 
-# Expose the port your app listens on (replace with your app's port)
+# Step 6: Expose the port your application runs on (default is 3000 for Express apps)
 EXPOSE 3001
 
-# Define the command to start your application
-CMD ["yarn", "start"]
-
-#How to run
-#docker build -t upload-video-service .
-#docker run -p 3000:3000 -d upload-video-service
+# Step 7: Specify the command to run the app (make sure your start script is defined in package.json)
+CMD ["npm", "start"]
