@@ -1,5 +1,5 @@
 # Step 1: Use the official Node.js image with the specified version
-FROM node:22.12.0
+FROM  --platform=linux/amd64 node:22.12.0
 
 # Step 2: Set the working directory inside the container
 WORKDIR /usr/src/app

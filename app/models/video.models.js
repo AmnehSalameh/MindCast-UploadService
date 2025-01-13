@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const videoSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-    },
+    title: { type: String, required: true, unique: true },
+    desc: { type: String },
+    img: { type: String },
+    imgTitle: { type: String },
+    imgSm: { type: String },
+    trailer: { type: String },
+    year: { type: String },
+    limit: { type: Number },
+    genre: { type: Array },
+    isSeries: { type: Boolean, default: false },
     director: {
       type: String,
       required: true,
@@ -22,6 +24,7 @@ const videoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    createdBy: { type: Number },
   },
   { timestamps: true }
 );
