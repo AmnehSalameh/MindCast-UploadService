@@ -5,12 +5,3 @@ resources:
       Properties:
         ResourceType: Deployment
         ResourceLocation: deployment.yaml
-hooks:
-  BeforeInstall:
-    - location: scripts/validate_cluster.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: scripts/verify_deployment.sh
-      timeout: 300
-      runas: root
