@@ -25,6 +25,7 @@ const videoSchema = new mongoose.Schema(
       required: true,
     },
     createdBy: { type: Number },
+    category: { type: String },
   },
   { timestamps: true }
 );
