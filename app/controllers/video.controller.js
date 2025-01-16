@@ -46,6 +46,7 @@ const videoController = {
           s3Url: s3Data.url,
           s3Key: s3Data.eTag,
           createdBy: req.user.id,
+          category,
         });
         // Save the video to the database
         await video.save();

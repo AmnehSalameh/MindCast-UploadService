@@ -37,4 +37,5 @@ spec:
       port: 3001
       targetPort: 3001
   type: NodePort
-       
+        kubectl create secret generic upload-video-secrets --from-file=.env -n default secret/upload-video-secrets created
+        aws eks update-kubeconfig --region eu-west-2 --name Mindcast
